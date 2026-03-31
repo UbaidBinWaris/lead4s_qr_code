@@ -1,0 +1,343 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+        --bg-main: #FFFFFF;
+        --card-bg: #FFFFFF;
+        --accent: #111827; /* Neutral dark brand color */
+        --text-main: #111827;
+        --text-muted: #6B7280;
+        --border-color: #E5E7EB;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--bg-main);
+        color: var(--text-main);
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+    }
+
+    .page {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        min-height: 100vh;
+        background-color: var(--bg-main);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .card {
+        width: 100vw;
+        height: 100vh;
+        background-color: transparent; /* Allows page background image to show */
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card-header {
+        padding: 4rem 2rem 2.5rem;
+        text-align: center;
+        background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.95) 100%);
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-container {
+        width: 100%;
+        max-width: 180px;
+        height: 60px;
+        margin: 0 auto 1.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .avatar-wrap {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid #E5E7EB;
+        margin: 0 auto 1rem;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+    }
+
+    .avatar-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .name {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 6px;
+        letter-spacing: -0.5px;
+    }
+
+    .title-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-main);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        background: #F3F4F6;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        padding: 6px 12px;
+        margin-top: 4px;
+    }
+
+    .section-label {
+        font-size: 11px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        font-weight: 600;
+        padding: 28px 24px 12px;
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .link-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 20px;
+        background: #FFFFFF;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        margin: 0 auto 10px;
+        max-width: 552px;
+        width: calc(100% - 48px);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Soft drop shadow for white theme */
+    }
+
+    .link-row:hover {
+        background: #F9FAFB;
+        border-color: #D1D5DB;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .link-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    .link-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .link-text {
+        flex: 1;
+    }
+
+    .link-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-main);
+        margin-bottom: 3px;
+    }
+
+    .link-sub {
+        font-size: 12px;
+        color: var(--text-muted);
+        font-weight: 400;
+    }
+
+    .link-arrow {
+        color: #9CA3AF;
+        font-size: 18px;
+        transition: transform 0.2s, color 0.2s;
+    }
+
+    .link-row:hover .link-arrow {
+        transform: translateX(3px);
+        color: var(--accent);
+    }
+
+    .website-row {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        text-decoration: none;
+        background: #FFFFFF;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        transition: all 0.2s ease;
+        margin: 24px auto;
+        max-width: 552px;
+        width: calc(100% - 48px);
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-row:hover {
+        background: #F9FAFB;
+        border-color: #D1D5DB;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .website-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        background: #FFFFFF;
+        border: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+        padding: 6px;
+    }
+
+    .website-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .website-name {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--accent);
+        margin-bottom: 2px;
+    }
+
+    .website-sub {
+        font-size: 12px;
+        color: var(--text-muted);
+    }
+
+    .website-arrow {
+        color: var(--accent);
+        font-size: 18px;
+        opacity: 0.8;
+        transition: transform 0.2s;
+    }
+
+    .website-row:hover .website-arrow {
+        transform: translateX(3px);
+    }
+
+    .card-footer {
+        padding: 30px 20px 40px;
+        text-align: center;
+        margin-top: auto;
+    }
+
+    .footer-text {
+        font-size: 11px;
+        color: var(--text-muted);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+</style>
+
+<div class="page">
+    <div class="card">
+
+        <div class="card-header">
+            <div class="avatar-wrap">
+                <img src="talat.jpeg" alt="Talat Khan">
+            </div>
+            <div class="name">Talat Khan</div>
+            <div class="title-badge">CEO · Lead4s</div>
+        </div>
+
+        <div class="section-label">Connect</div>
+
+        <a href="tel:+17174944192" class="link-row">
+            <div class="link-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone">
+            </div>
+            <div class="link-text">
+                <div class="link-name">Phone Call</div>
+                <div class="link-sub">+1 (717) 494-4192</div>
+            </div>
+            <span class="link-arrow">›</span>
+        </a>
+
+        <a href="https://wa.me/17174944192" class="link-row">
+            <div class="link-icon">
+                <img src="whatsapp.jpg" alt="WhatsApp">
+            </div>
+            <div class="link-text">
+                <div class="link-name">WhatsApp</div>
+                <div class="link-sub">+1 (717) 494-4192</div>
+            </div>
+            <span class="link-arrow">›</span>
+        </a>
+
+        <a href="https://www.linkedin.com/in/talatrazeeq" class="link-row">
+            <div class="link-icon">
+                <img src="linkedin.webp" alt="LinkedIn">
+            </div>
+            <div class="link-text">
+                <div class="link-name">LinkedIn</div>
+                <div class="link-sub">linkedin.com/in/talatrazeeq</div>
+            </div>
+            <span class="link-arrow">›</span>
+        </a>
+
+        <a href="https://www.instagram.com/talatkhan222?igsh=MTN1ZnZtNjFiMXVrZA==" class="link-row">
+            <div class="link-icon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Instagram">
+            </div>
+            <div class="link-text">
+                <div class="link-name">Instagram</div>
+                <div class="link-sub">@talatkhan222</div>
+            </div>
+            <span class="link-arrow">›</span>
+        </a>
+
+        <a href="https://lead4s.com" class="website-row">
+            <div class="website-icon">
+                <img src="lead4s_logo.png" alt="Lead4s">
+            </div>
+            <div class="link-text">
+                <div class="website-name">Visit Our Website</div>
+                <div class="website-sub">lead4s.com</div>
+            </div>
+            <span class="website-arrow">›</span>
+        </a>
+
+
+    </div>
+</div>
